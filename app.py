@@ -217,7 +217,11 @@ def main():
         with open(str(output_path), "rb") as f:
             st.download_button("⬇️ Download Annotated Video", f,
                                file_name="cricket_tracked_output.mp4", mime="video/mp4")
-        st.video(str(output_path))
+        FILE_ID = "1tumPGJW-0H_62rNJsmZVbeaNoZXN120O"
+        st.markdown(f"""
+        <iframe src="https://drive.google.com/file/d/{FILE_ID}/preview" 
+        width="100%" height="480" allow="autoplay"></iframe>
+        """, unsafe_allow_html=True)
     else:
         st.warning("Sample output video not found. Place your annotated video at `samples/output.mp4`")
 
@@ -227,7 +231,11 @@ def main():
     st.markdown("## 📹 Original Source Video")
     input_path = Path("samples/input.mp4")
     if input_path.exists():
-        st.video(str(input_path))
+        FILE_ID = "1-RVbKw2Pz_xS1frGpuPuuaO7RJ_ZdCo3"
+        st.markdown(f"""
+        <iframe src="https://drive.google.com/file/d/{FILE_ID}/preview" 
+        width="100%" height="480" allow="autoplay"></iframe>
+        """, unsafe_allow_html=True)
     else:
         st.warning("Sample input video not found. Place your source video at `samples/input.mp4`")
 
