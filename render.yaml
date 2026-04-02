@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: cricket-tracker-ai
+    env: python
+    region: oregon
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: HOME
+        value: /tmp
+    disk:
+      name: output-storage
+      mountPath: /opt/render/project/src/output
+      sizeGB: 5
